@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,286 +8,508 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Profile Application',
-      theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const MyHomePage(title: 'My Profile'),
+      debugShowCheckedModeBanner: false,
+      title: 'Student Profile',
+      home: const MyHomePage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
 
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFE4EDF3),
-
-      // Fixed header
+      backgroundColor: const Color(0xFF181A29),
       appBar: AppBar(
-        backgroundColor: const Color(0xFF07155F),
-        foregroundColor: Colors.white,
-        title: Text(widget.title)
-      ),
-
-      // Scrollable body
-      body: Container(
-        decoration: BoxDecoration(
-          color: Color(0xFFE4EDF3),
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(30),
-            topRight: Radius.circular(30),
+        title: Text(
+          'My Profile',
+          style: GoogleFonts.poppins(
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
           ),
         ),
+        backgroundColor: const Color(0xFF232736)
+      ),
+      body: Container(
         child: SingleChildScrollView(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
-              Card(
-                elevation: 1,
+              Container(
+                width: double.infinity,
+                color: const Color(0xFF181A29),
                 child: Padding(
-                  padding: EdgeInsets.all(16),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'JALBUENA, KHEVIN FRANZ E.',
-                            style: TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xFF07155F),
-                            ),
-                          ),
-
-                          SizedBox(height: 5),
-
-                          Text(
-                            '"kev"',
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Color(0xFF506070),
-                            ),
-                          ),
-
-                          SizedBox(height: 8),
-
-                          Text(
-                            'BSIT   •   3rd Year   •   3IT-B',
-                            style: TextStyle(
-                              fontSize: 13,
-                              color: Color(0xFF145DB0),
-                            ),
-                          ),
-                        ],
+                      ClipOval(
+                        child: Image.asset(
+                          'assets/profile.jpg',
+                          width: 120,
+                          height: 120,
+                          fit: BoxFit.cover,
+                        ),
                       ),
 
-                      // Avatar
-                      Image.network(
-                        'https://i.pinimg.com/736x/a6/e2/f0/a6e2f0ad7e1d6aebcb8d975d1592cd42.jpg',
-                        fit: BoxFit.fill,
-                      )
+                      const SizedBox(height: 10),
+
+                      Text(
+                        'Khevin Franz E. Jalbuena',
+                        style: GoogleFonts.poppins(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+
+                      const SizedBox(height: 5),
+
+                      Text(
+                        '"kev"',
+                        style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          color: Colors.grey,
+                        ),
+                      ),
+
+                      const SizedBox(height: 10),
+
+                      Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: const Color(0xFF13334B),
+                            width: 1.5,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        padding: const EdgeInsets.all(10),
+                        child: Text(
+                          'BSIT • 3rd Year • 3IT-B',
+                          style: GoogleFonts.poppins(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
               ),
 
-              SizedBox(height: 25),
+              const SizedBox(height: 20),
 
               Text(
                 'PERSONAL INFORMATION',
-                style: TextStyle(
-                  fontSize: 14,
+                style: GoogleFonts.poppins(
+                  fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF145DB0),
+                  color: Colors.white,
                 ),
               ),
 
-              SizedBox(height: 10),
+              const Divider(
+                color: Colors.white24,
+                thickness: 1,
+                height: 30,
+              ),
 
               Card(
+                color: const Color(0xFF232736),
                 elevation: 1,
-                child: Column(
-                  children: [
-
-                    ListTile(
-                      leading: CircleAvatar(
-                        backgroundColor: Color(0xFFDCEAF5),
-                        child: Icon(
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Row(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF062336),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        padding: const EdgeInsets.all(3),
+                        child: const Icon(
                           Icons.cake_outlined,
-                          color: Color(0xFF145DB0),
-                        ),
+                          color: Colors.white70,
+                        )
                       ),
-                      title: Text('Age'),
-                      trailing: Text('19'),
-                    ),
-
-                    Divider(height: 1),
-
-                    ListTile(
-                      leading: CircleAvatar(
-                        backgroundColor: Color(0xFFDCEAF5),
-                        child: Icon(
-                          Icons.calendar_today_outlined,
-                          color: Color(0xFF145DB0),
-                        ),
+                      const SizedBox(width: 15),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Age',
+                            style: GoogleFonts.poppins(
+                              fontSize: 12,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          Text(
+                            '19',
+                            style: GoogleFonts.poppins(
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
                       ),
-                      title: Text('Birthday'),
-                      trailing: Text('October 24, 2006'),
-                    ),
-
-                    Divider(height: 1),
-
-                    ListTile(
-                      leading: CircleAvatar(
-                        backgroundColor: Color(0xFFDCEAF5),
-                        child: Icon(
-                          Icons.location_on_outlined,
-                          color: Color(0xFF145DB0),
-                        ),
-                      ),
-                      title: Text('Address'),
-                      trailing: Text('San Isidro, Cabuyao, Laguna'),
-                    ),
-
-                    Divider(height: 1),
-
-                    ListTile(
-                      leading: CircleAvatar(
-                        backgroundColor: Color(0xFFDCEAF5),
-                        child: Icon(
-                          Icons.favorite_outline,
-                          color: Color(0xFF145DB0),
-                        ),
-                      ),
-                      title: Text('Hobby'),
-                      trailing: Text('Gaming, Sports'),
-                    ),
-
-                    Divider(height: 1),
-
-                    ListTile(
-                      leading: CircleAvatar(
-                        backgroundColor: Color(0xFFDCEAF5),
-                        child: Icon(
-                          Icons.format_quote,
-                          color: Color(0xFF145DB0),
-                        ),
-                      ),
-                      title: Text('Motto'),
-                      trailing: Text('Life is short.'),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
 
-              SizedBox(height: 25),
+              Card(
+                color: const Color(0xFF232736),
+                elevation: 1,
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Row(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF062336),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        padding: const EdgeInsets.all(3),
+                        child: const Icon(
+                          Icons.calendar_today_outlined,
+                          color: Colors.white70,
+                        ),
+                      ),
+                      const SizedBox(width: 15),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Birthdate',
+                            style: GoogleFonts.poppins(
+                              fontSize: 12,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          Text(
+                            'October 24, 2006',
+                            style: GoogleFonts.poppins(
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+              Card(
+                color: const Color(0xFF232736),
+                elevation: 1,
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Row(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF062336),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        padding: const EdgeInsets.all(3),
+                        child: const Icon(
+                          Icons.location_on_outlined,
+                          color: Colors.white70,
+                        ),
+                      ),
+                      const SizedBox(width: 15),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Address',
+                              style: GoogleFonts.poppins(
+                                fontSize: 12,
+                                color: Colors.grey,
+                              ),
+                            ),
+                            Text(
+                              'San Isidro, Cabuyao, Laguna',
+                              style: GoogleFonts.poppins(
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+              Card(
+                color: const Color(0xFF232736),
+                elevation: 1,
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Row(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF062336),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        padding: const EdgeInsets.all(3),
+                        child: const Icon(
+                          Icons.favorite_border_outlined,
+                          color: Colors.white70,
+                        ),
+                      ),
+                      const SizedBox(width: 15),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Hobby',
+                              style: GoogleFonts.poppins(
+                                fontSize: 12,
+                                color: Colors.grey,
+                              ),
+                            ),
+                            Text(
+                              'Gaming, Sports, Dancing',
+                              style: GoogleFonts.poppins(
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+              Card(
+                color: const Color(0xFF232736),
+                elevation: 1,
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Row(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF062336),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        padding: const EdgeInsets.all(3),
+                        child: const Icon(
+                          Icons.format_quote_outlined,
+                          color: Colors.white70,
+                        ),
+                      ),
+                      const SizedBox(width: 15),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Motto',
+                            style: GoogleFonts.poppins(
+                              fontSize: 12,
+                              color: Colors.grey,
+                            ),
+                          ),
+                          Text(
+                            'Life is short.',
+                            style: GoogleFonts.poppins(
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 20),
 
               Text(
                 'ACADEMIC INFORMATION',
-                style: TextStyle(
-                  fontSize: 14,
+                style: GoogleFonts.poppins(
+                  fontSize: 16,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF145DB0),
+                  color: Colors.white,
                 ),
               ),
 
-              SizedBox(height: 10),
-
-              Card(
-                elevation: 0,
-                color: Color(0xFFC9E0ED),
-                child: Column(
-                  children: [
-
-                    ListTile(
-                      leading: CircleAvatar(
-                        backgroundColor: Color(0xFFDCEAF5),
-                        child: Icon(
-                          Icons.menu_book_outlined,
-                          color: Color(0xFF07155F),
-                        ),
-                      ),
-                      title: Text(
-                        'Favorite Subject',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFF07155F),
-                        ),
-                      ),
-                      subtitle: Text(
-                        'Physical Activities Toward Health and Fitness',
-                      ),
-                    ),
-
-                    Divider(
-                      height: 1,
-                      color: Color.fromARGB(255, 149, 170, 185),
-                    ),
-
-                    ListTile(
-                      leading: CircleAvatar(
-                        backgroundColor: Color(0xFFDCEAF5),
-                        child: Icon(
-                          Icons.code,
-                          color: Color(0xFF07155F),
-                        ),
-                      ),
-                      title: Text(
-                        'Programming Language',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFF07155F),
-                        ),
-                      ),
-                      subtitle: Text('Java'),
-                    ),
-
-                    Divider(
-                      height: 1,
-                      color: Color.fromARGB(255, 149, 170, 185),
-                    ),
-
-                    ListTile(
-                      leading: CircleAvatar(
-                        backgroundColor: Color(0xFFDCEAF5),
-                        child: Icon(
-                          Icons.flag_outlined,
-                          color: Color(0xFF07155F),
-                        ),
-                      ),
-                      title: Text(
-                        'Career Goal',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFF07155F),
-                        ),
-                      ),
-                      subtitle: Text('Web Developer'),
-                    ),
-                  ],
-                ),
+              const Divider(
+                color: Colors.white24,
+                thickness: 1,
+                height: 30,
               ),
 
-              SizedBox(height: 20),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: SizedBox(
+                      height: 210,
+                      child: Card(
+                        color: const Color(0xFF232736),
+                        elevation: 1,
+                        child: Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Column(
+                            children: [
+                              const CircleAvatar(
+                                backgroundColor: Color(0xFF062336),
+                                child: Icon(
+                                  Icons.menu_book_outlined,
+                                  color: Colors.white70,
+                                ),
+                              ),
+
+                              const SizedBox(height: 5),
+
+                              Text(
+                                'Favorite Subject',
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.poppins(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+
+                              const SizedBox(height: 10),
+
+                              Text(
+                                'Physical Activities Toward Health and Fitness',
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.poppins(
+                                  fontSize: 12,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(width: 10),
+
+                  Expanded(
+                    child: SizedBox(
+                      height: 210,
+                      child: Card(
+                        color: const Color(0xFF232736),
+                        elevation: 1,
+                        child: Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Column(
+                            children: [
+                              const CircleAvatar(
+                                backgroundColor: Color(0xFF062336),
+                                child: Icon(
+                                  Icons.menu_book_outlined,
+                                  color: Colors.white70,
+                                ),
+                              ),
+
+                              const SizedBox(height: 5),
+
+                              Text(
+                                'Programming Language',
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.poppins(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+
+                              const SizedBox(height: 10),
+
+                              Text(
+                                'Java | Kotlin',
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.poppins(
+                                  fontSize: 12,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+
+                  const SizedBox(width: 10),
+
+                  Expanded(
+                    child: SizedBox(
+                      height: 210,
+                      child: Card(
+                        color: const Color(0xFF232736),
+                        elevation: 1,
+                        child: Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Column(
+                            children: [
+                              const CircleAvatar(
+                                backgroundColor: Color(0xFF062336),
+                                child: Icon(
+                                  Icons.menu_book_outlined,
+                                  color: Colors.white70,
+                                ),
+                              ),
+
+                              const SizedBox(height: 5),
+
+                              Text(
+                                'Career Goal',
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.poppins(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+
+                              const SizedBox(height: 10),
+
+                              Text(
+                                'Web Developer',
+                                textAlign: TextAlign.center,
+                                style: GoogleFonts.poppins(
+                                  fontSize: 12,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
